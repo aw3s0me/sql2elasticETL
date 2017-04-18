@@ -1,7 +1,7 @@
 SELECT DISTINCT
   pac_apo.PZN AS PZN,
   pac_apo.Langname AS NAME,
-  GROUP_CONCAT(sna_db.Name SEPARATOR ', ') AS STOFF
+  GROUP_CONCAT(sna_db.Name SEPARATOR ',') AS STOFF
 FROM pac_apo
  JOIN pae_db ON pac_apo.PZN = pae_db.PZN
  JOIN fam_db ON fam_db.Key_FAM = pae_db.Key_FAM

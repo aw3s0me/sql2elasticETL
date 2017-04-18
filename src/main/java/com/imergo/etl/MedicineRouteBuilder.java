@@ -11,6 +11,7 @@ import org.apache.camel.builder.RouteBuilder;
 public class MedicineRouteBuilder extends RouteBuilder {
     private final String sqlEndpoint;
     private final String sql;
+    private final String ES_START_ENDPOINT = "direct:es-start";
 
     public MedicineRouteBuilder(CamelContext context, String sqlEndpoint, String sql) {
         super(context);
