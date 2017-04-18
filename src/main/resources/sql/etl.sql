@@ -1,4 +1,8 @@
-SELECT DISTINCT pac_apo.PZN, pac_apo.Langname, sto_db.Wirkstoff, GROUP_CONCAT(sna_db.Name SEPARATOR ', ') AS Substances FROM pac_apo
+SELECT DISTINCT
+  pac_apo.PZN AS PZN,
+  pac_apo.Langname AS NAME,
+  GROUP_CONCAT(sna_db.Name SEPARATOR ', ') AS STOFF
+FROM pac_apo
  JOIN pae_db ON pac_apo.PZN = pae_db.PZN
  JOIN fam_db ON fam_db.Key_FAM = pae_db.Key_FAM
  JOIN fak_db ON fak_db.Key_FAM = fam_db.Key_FAM

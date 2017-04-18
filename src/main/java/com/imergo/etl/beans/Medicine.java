@@ -6,9 +6,9 @@ package com.imergo.etl.beans;
 public class Medicine {
     private String pzn;
     private String name;
-    // TODO: add stoff
+    private String stoff;
 
-    public Medicine(String name, String pzn) {
+    public Medicine(String name, String pzn, String stoff) {
         this.name = name;
         this.pzn = pzn;
     }
@@ -21,11 +21,16 @@ public class Medicine {
         return name;
     }
 
+    public String getStoff() {
+        return stoff;
+    }
+
     @Override
     public String toString() {
         return "Medicine{" +
                 "pzn='" + pzn + '\'' +
                 ", name='" + name + '\'' +
+                ", stoff='" + stoff + '\'' +
                 '}';
     }
 }
