@@ -25,6 +25,7 @@ public class ETLMain {
     private final static String SQL_FROM_ENDPOINT_URI = "direct:select";
     private final static String ETL_SCRIPT_SQL_PATH = "sql/etl.sql";
     private final static Logger LOG = LoggerFactory.getLogger(ETLMain.class);
+    private String ES_TO_ENDPOINT_URI = "elasticsearch://indexer?operation=BULK_INDEX&ip=127.0.0.1&port=9300";
 
     private String getSQL() {
         try {
@@ -55,8 +56,6 @@ public class ETLMain {
         reg.put("abdata", ds);
         return reg;
     }
-
-    private String ES_TO_ENDPOINT_URI = "elasticsearch://indexer?operation=BULK_INDEX&ip=127.0.0.1&port=9300";
 
     private void process() throws Exception {
         DbMySQLSettings settings = this.getSettings();
