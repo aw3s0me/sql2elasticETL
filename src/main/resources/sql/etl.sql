@@ -12,3 +12,4 @@ FROM pac_apo
  WHERE sna_db.Vorzugsbezeichnung = 1 AND sto_db.Wirkstoff = 1
  GROUP BY pac_apo.PZN
  ORDER BY pac_apo.PZN DESC
+ LIMIT 10

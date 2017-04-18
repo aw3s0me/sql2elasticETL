@@ -28,7 +28,7 @@ public class DbMySQLSettings {
         jdbcDriver = (String) jsonObject.get("driver");
         String host = (String) jsonObject.get("host");
         Long port = (Long)jsonObject.get("port");
-        dbAddress = String.format("jdbc:mysql://%1$s:%2$s/", host, port);
+        dbAddress = String.format("jdbc:mysql://%1$s:%2$s", host, port);
         userName = (String) jsonObject.get("username");
         password = (String) jsonObject.get("password");
         dbName = (String) jsonObject.get("db");

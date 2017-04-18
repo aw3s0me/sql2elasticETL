@@ -12,6 +12,8 @@
 hs_err_pid*
 
 .idea
+target
+logs
 *.iml
 
 src/main/resources/settings/cass.settings.json
