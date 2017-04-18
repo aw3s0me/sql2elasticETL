@@ -22,7 +22,7 @@ public class MedicineRouteBuilder extends RouteBuilder {
     public void configure() throws Exception {
         System.out.println(this.sql);
         System.out.println(this.sqlEndpoint);
-//        // TODO: add elastic search and parallelize sql transformation
+        // TODO: add elastic search and parallelize sql transformation
         from(this.sqlEndpoint)
                 .shutdownRunningTask(ShutdownRunningTask.CompleteAllTasks)
                 .log("select from abdata start")
@@ -32,16 +32,5 @@ public class MedicineRouteBuilder extends RouteBuilder {
                 .split(body())
                 .process(new MedicineProcessor())
                 .log("${body}");
-
-//        from(this.sqlEndpoint)
-//                .process(new MedicineProcessor())
-//                .setBody(constant(this.sql))
-//                .to("jdbc:abdata?readSize=10")
-//                .log("${body}");
-
-//        from(this.sqlEndpoint)
-//                .to("jdbc:abdata?readSize=10")
-//                .split(body())
-//                .to("mock:result");
     }
 }

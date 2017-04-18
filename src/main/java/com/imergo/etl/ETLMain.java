@@ -58,16 +58,6 @@ public class ETLMain {
 
     private String ES_TO_ENDPOINT_URI = "elasticsearch://indexer?operation=BULK_INDEX&ip=127.0.0.1&port=9300";
 
-//    private Endpoint createEndpoint(String sql, CamelContext ctx) {
-//        Endpoint endpoint = ctx.getEndpoint(SQL_FROM_ENDPOINT_URI);
-//        Exchange exchange = endpoint.createExchange();
-//
-//        exchange.getIn().setBody(constant(sql));
-//        ProducerTemplate template = ctx.createProducerTemplate();
-//        Exchange out = template.send(endpoint, exchange);
-//        return null;
-//    }
-
     private void process() throws Exception {
         DbMySQLSettings settings = this.getSettings();
         SimpleRegistry registry = this.createRegistry(settings);
