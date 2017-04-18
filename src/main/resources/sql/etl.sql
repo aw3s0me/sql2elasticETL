@@ -5,6 +5,6 @@ SELECT DISTINCT pac_apo.PZN, pac_apo.Langname, sto_db.Wirkstoff, GROUP_CONCAT(sn
  JOIN fai_db ON fai_db.Key_FAM = fak_db.Key_FAM
  JOIN sto_db ON sto_db.Key_STO = fai_db.Key_STO
  JOIN sna_db ON sna_db.Key_STO = sto_db.Key_STO
- WHERE sna_db.Vorzugsbezeichnung = 1 AND sto_db.Wirkstoff = 1 
+ WHERE sna_db.Vorzugsbezeichnung = 1 AND sto_db.Wirkstoff = 1
  GROUP BY pac_apo.PZN
  ORDER BY pac_apo.PZN DESC
