@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Created by korovin on 4/18/2017.
  */
-public class MedicineProcessor implements Processor {
+public class MedicineSQLProcessor implements Processor {
     @Override
     public void process(Exchange exchange) throws Exception {
         Map row = exchange.getIn().getBody(Map.class);

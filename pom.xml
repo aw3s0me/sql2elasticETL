@@ -12,9 +12,10 @@
         <slf4j.version>1.7.21</slf4j.version>
         <mysql.version>6.0.6</mysql.version>
         <jsonsimple.version>1.1.1</jsonsimple.version>
-        <camel.version>2.18.3</camel.version>
+        <camel.version>2.19.0-SNAPSHOT</camel.version>
         <spring.version>1.5.2.RELEASE</spring.version>
         <jsonsimple.version>1.1.1</jsonsimple.version>
+        <jackson.version>2.8.8</jackson.version>
     </properties>
 
     <build>
@@ -44,6 +45,20 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>apache.snapshots</id>
+            <name>Apache Development Snapshot Repository</name>
+            <url>https://repository.apache.org/content/repositories/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
@@ -89,9 +104,14 @@
             <version>${camel.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-elasticsearch -->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.camel</groupId>-->
+            <!--<artifactId>camel-elasticsearch</artifactId>-->
+            <!--<version>${camel.version}</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-elasticsearch</artifactId>
+            <artifactId>camel-elasticsearch5</artifactId>
             <version>${camel.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-jdbc -->
@@ -117,6 +137,24 @@
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>${jsonsimple.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.8.2</version>
         </dependency>
     </dependencies>
 </project>

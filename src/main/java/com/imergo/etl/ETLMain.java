@@ -6,6 +6,7 @@ import com.imergo.etl.helpers.ResourceHelper;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Endpoint;
 import org.apache.camel.ProducerTemplate;
+import org.apache.camel.component.elasticsearch5.ElasticsearchComponent;
 import org.apache.camel.component.jdbc.JdbcComponent;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.impl.SimpleRegistry;
@@ -25,7 +26,6 @@ public class ETLMain {
     private final static String SQL_FROM_ENDPOINT_URI = "direct:select";
     private final static String ETL_SCRIPT_SQL_PATH = "sql/etl.sql";
     private final static Logger LOG = LoggerFactory.getLogger(ETLMain.class);
-    private String ES_TO_ENDPOINT_URI = "elasticsearch://indexer?operation=BULK_INDEX&ip=127.0.0.1&port=9300";
 
     private String getSQL() {
         try {
@@ -65,6 +65,7 @@ public class ETLMain {
         CamelContext camelContext = new DefaultCamelContext(registry);
         ProducerTemplate template = camelContext.createProducerTemplate();
         camelContext.addComponent("jdbc", new JdbcComponent(camelContext));
+        camelContext.addComponent("elasticsearch", new ElasticsearchComponent(camelContext));
         camelContext.getShutdownStrategy().setTimeout(5L);
         camelContext.addRoutes(new MedicineRouteBuilder(camelContext, SQL_FROM_ENDPOINT_URI, sql));
 

@@ -1,0 +1,6 @@
+{
+  "nodes": ["129.26.161.155", "129.26.161.156", "129.26.161.157"],
+  "port": 9042,
+  "keyspace": "medication_test",
+  "table": "medication"
+}
